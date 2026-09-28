@@ -16,15 +16,14 @@ public class Pelanggan {
         this.alamat = alamat;
     }
 
-    // Getter
     public String getIdPelanggan() {
         return idPelanggan;
     }
-
+    
     public String getNama() {
         return nama;
     }
-
+    
     public String getNoTelepon() {
         return noTelepon;
     }
