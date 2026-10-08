@@ -1,27 +1,33 @@
-# Charist Evlyn Myscha Rerung_2509116102
+# Graziella’s Music Studio 
+### Charist Evlyn Myscha Rerung_2509116102
 
 ## Deskripsi Program
 Sistem Manajemen Studio Musik merupakan program berbasis bahasa pemrograman Java yang digunakan untuk mengelola data studio musik secara sederhana. Program ini dibuat untuk membantu pengguna dalam mengelola data studio, pelanggan, dan booking studio. Program ini menerapkan operasi CRUD untuk menambah, menampilkan, mengubah, dan menghapus data yang tersimpan.
 Program yang dibuat merupakan Sistem Manajemen Studio Musik yang digunakan untuk mengelola data studio, pelanggan, dan booking studio. Program ini dibuat untuk membantu proses pencatatan data studio yang tersedia, data pelanggan, serta jadwal booking yang dilakukan oleh pelanggan.
-## Hierarki Class
-Pada program ini, inheritance diterapkan dengan menjadikan class Pelanggan sebagai superclass yang memiliki dua subclass, yaitu PelangganUmum dan PelangganMember. Class PelangganUmum digunakan untuk data pelanggan biasa, sedangkan PelangganMember digunakan untuk data pelanggan yang memiliki jenis member tertentu. Hierarki class pada program ini dapat digambarkan dengan Pelanggan berada di bagian atas sebagai superclass, kemudian bercabang menjadi PelangganUmum dan PelangganMember sebagai subclass.
-## Inheritance
-Penerapan inheritance pada program dilakukan dengan menggunakan extends pada class PelangganUmum dan PelangganMember. Kedua class tersebut mewarisi atribut dan method yang terdapat pada class Pelanggan. Pada PelangganMember juga terdapat atribut tambahan berupa jenisMember karena pelanggan member memiliki informasi tambahan yang tidak dimiliki pelanggan umum. Dengan inheritance ini, saya tidak perlu membuat ulang atribut dasar pelanggan pada setiap class karena sudah dapat diwariskan dari class Pelanggan.
-
-Selain inheritance, program ini juga menerapkan polymorphism melalui method overriding pada method getInfo(). Method getInfo() yang terdapat pada class Pelanggan dibuat kembali pada class PelangganUmum dan PelangganMember sehingga dapat menghasilkan informasi yang berbeda sesuai dengan jenis pelanggan. Pada pelanggan umum akan menampilkan informasi sebagai pelanggan umum, sedangkan pada pelanggan member akan menampilkan nama pelanggan beserta jenis member yang dimiliki
-1. Pelanggan umum
-   
-  <img width="1010" height="89" alt="image" src="https://github.com/user-attachments/assets/8cda92a5-6a23-4189-b06a-d3c75ee0d5c4" />
-
-   Pada kode tersebut, PelangganUmum merupakan subclass dari Pelanggan yang menggunakan extends untuk mewarisi atribut dan method dari class Pelanggan. Kemudian super() digunakan untuk memanggil constructor dari class induk dan mengisi data pelanggan seperti ID, nama, nomor telepon, dan alamat.
-
-2. Pelanggan Member
-   
-   <img width="500" height="150" alt="image" src="https://github.com/user-attachments/assets/45ec2fb5-099a-4e39-87b3-c543218aaf7e" />
-   
-Pada kode tersebut, PelangganMember merupakan subclass dari Pelanggan yang mewarisi data dari class induknya. Class ini memiliki atribut tambahan jenisMember untuk menyimpan jenis member pelanggan. super() digunakan untuk memanggil constructor Pelanggan, sedangkan getJenisMember() dan setJenisMember() digunakan untuk mengambil dan mengubah nilai jenisMember
-## Running Program
-
+## Struktur Package
+Pada program ini, menggunakan struktur package yang terdiri dari model, view, controller dan studiomusik. Pembagian package ini digunakan agar setiap bagian program memiliki tugasnya masing masing dan kode menjadi lebih teratur.
+#### 1. Package model
+package model ini digunakan untuk menyimpan class yang berhubungan dengan data dan objek dalam program.
+Class yang terdapat pada package ini yaitu:
+- Studio.java
+- Pelanggan.java
+- PelangganUmum.java
+- PelangganMember.java
+- Booking.java
+- CRUD.java\
+Class pelanggan disini diggunakan sebagai abstract claas yang menjadi induk dari class PelangganUmum dan PelangganMember.
+#### 2. Package view
+package ini digunakan untuk mengatur bagian tampilan dan input dari pengguna. Di dalam package ini terdapat MenuView.java.\
+Class ini digunakan untuk menampilkan menu utama dan menerima input dari pengguna. Selain itu, class ini juga memiliki beberapa method untuk menerima input berupa teks, angka, dan angka desimal.\
+Jadi, bagian view lebih berfokus pada interaksi antara program dengan pengguna, sedangkan proses pengolahan datanya dilakukan oleh bagian controller.
+#### 3. Package controller
+Package controller digunakan untuk mengatur jalannya program dan proses pengolahan data.
+Di dalamnya terdapat StudioController.java. Class ini mengatur proses seperti menambah data, menampilkan data, mengubah data, menghapus data, menambah pelanggan, dan membuat booking. StudioController juga mengatur ArrayList yang digunakan untuk menyimpan data studio, pelanggan, dan booking.\
+Controller juga menghubungkan bagian model dengan view. Input yang diberikan melalui MenuView akan diproses oleh StudioController, kemudian hasilnya ditampilkan kembali kepada pengguna.
+#### 4. Package studiomusik
+Package studiomusik digunakan sebagai tempat class utama program.
+Di dalam package ini terdapat Main.java. Class tersebut berisi method main() yang digunakan untuk menjalankan program. Main membuat objek dari StudioController, kemudian memanggil method jalankanProgram() untuk memulai program.
+## Alur Program
 1. Tampilan Menu Utama
    
    <img width="364" height="260" alt="image" src="https://github.com/user-attachments/assets/2f8ab8bb-5b26-47e3-9428-986d9528fd68" />
@@ -80,10 +86,48 @@ Pada kode tersebut, PelangganMember merupakan subclass dari Pelanggan yang mewar
 
     <img width="400" height="98" alt="image" src="https://github.com/user-attachments/assets/e3f9ffa3-66ef-4d0d-8626-0e17d485e583" />
 
-    Selesai.... Terimakasih.
+    Menu ini digunakan untuk menghentikan program. Jika pengguna memilih menu 9, program akan menampilkan pesan bahwa program selesai dan perulangan menu akan dihentikan.
+## Encapsulation
+Encapsulation merupakan konsep OOP yang digunakan untuk membatasi akses langsung terhadap data di dalam class. Pada program saya, encapsulation digunakan agar atribut tidak dapat diakses langsung dari luar class. Atribut dibuat private, kemudian untuk mengambil atau mengubah nilainya digunakan getter dan setter.\
+<img width="226" height="150" alt="image" src="https://github.com/user-attachments/assets/df7472dc-49c7-45fb-935b-d108f2297b45" />\
+Pada gambar tersebut, saya membuat atribut idStudio, namaStudio, jenisStudio, dan hargaPerJam dengan access modifier private. Hal ini digunakan untuk membatasi akses langsung terhadap data yang ada pada class Studio.\
+<img width="226" height="170" alt="image" src="https://github.com/user-attachments/assets/ec7956d8-ed7c-4446-b504-df08426fd757" />\
+bisa dilihat pada gambar ini, saya menggunakan getIdStudio() sebagai getter untuk mengambil nilai idStudio, sedangkan setIdStudio() digunakan sebagai setter untuk mengubah nilai idStudio. Getter dan setter ini menjadi perantara untuk mengakses atribut yang sebelumnya dibuat private.
+## Inheritance
+Penerapan inheritance pada program dilakukan dengan menggunakan extends pada class PelangganUmum dan PelangganMember. Kedua class tersebut mewarisi atribut dan method yang terdapat pada class Pelanggan. Pada PelangganMember juga terdapat atribut tambahan berupa jenisMember karena pelanggan member memiliki informasi tambahan yang tidak dimiliki pelanggan umum. Dengan inheritance ini, saya tidak perlu membuat ulang atribut dasar pelanggan pada setiap class karena sudah dapat diwariskan dari class Pelanggan.
 
+1. Pelanggan umum
+   
+  <img width="1010" height="89" alt="image" src="https://github.com/user-attachments/assets/8cda92a5-6a23-4189-b06a-d3c75ee0d5c4" />
 
+   Pada kode tersebut, PelangganUmum merupakan subclass dari Pelanggan yang menggunakan extends untuk mewarisi atribut dan method dari class Pelanggan. Kemudian super() digunakan untuk memanggil constructor dari class induk dan mengisi data pelanggan seperti ID, nama, nomor telepon, dan alamat.
 
+2. Pelanggan Member
+   
+   <img width="500" height="150" alt="image" src="https://github.com/user-attachments/assets/45ec2fb5-099a-4e39-87b3-c543218aaf7e" />
+   
+Pada kode tersebut, PelangganMember merupakan subclass dari Pelanggan yang mewarisi data dari class induknya. Class ini memiliki atribut tambahan jenisMember untuk menyimpan jenis member pelanggan. super() digunakan untuk memanggil constructor Pelanggan, sedangkan getJenisMember() dan setJenisMember() digunakan untuk mengambil dan mengubah nilai jenisMember
+## Polymorphism
+Polymorphism merupakan konsep OOP yang memungkinkan satu method memiliki bentuk atau hasil yang berbeda tergantung dari class yang menggunakannya. Pada program saya, polymorphism diterapkan dalam dua bentuk, yaitu overriding dan overloading.
+#### 1. Overriding
+adalah ketika method dari class induk dibuat kembali di class turunan dengan nama dan parameter yang sama, tetapi isi atau hasilnya dapat berbeda.
+Pada program saya, overriding terdapat pada class PelangganUmum dan PelangganMember melalui method getInfo().\
+<img width="217" height="130" alt="image" src="https://github.com/user-attachments/assets/716dcccc-6722-4179-9e82-1df6e1e80158" />\
+Pada gambar ini, saya menerapkan overriding pada method getInfo(). Method tersebut dibuat kembali pada class PelangganUmum dengan menggunakan @Override. Isi method disesuaikan untuk menampilkan informasi pelanggan umum.
+#### 2. Overloading
+Overloading adalah ketika terdapat beberapa method dengan nama yang sama, tetapi memiliki parameter yang berbeda. Pada program saya, overloading diterapkan pada method getInfo(), yaitu getInfo() tanpa parameter dan getInfo(String tambahan) dengan satu parameter.\
+<img width="298" height="100" alt="image" src="https://github.com/user-attachments/assets/d78a13f7-0e58-4fd2-93e2-491f918cc08b" />\
+Pada gambar ini, saya menerapkan overloading pada method getInfo(). Terdapat dua method dengan nama yang sama, tetapi memiliki parameter yang berbeda. Method pertama tidak memiliki parameter, sedangkan method kedua memiliki parameter String tambahan.
+## Abstraction
+Abstraction merupakan konsep OOP yang digunakan untuk membuat class dan method sebagai dasar bagi class turunannya. Pada program saya, abstraction diterapkan pada class Pelanggan yang dibuat sebagai abstract class dan method getInfo() yang dibuat sebagai abstract method. Method tersebut kemudian diterapkan kembali pada class PelangganUmum dan PelangganMember.\
+<img width="413" height="62" alt="image" src="https://github.com/user-attachments/assets/6f0274c5-1466-440d-92eb-8308b4b94dc0" />\
+<img width="399" height="27" alt="image" src="https://github.com/user-attachments/assets/35b8c760-3fa3-4952-80a6-4f45b7436aa0" />\
+ini saya telah menerapkan abstraction dengan membuat class Pelanggan sebagai abstract class. Selain itu, method getInfo() dibuat sebagai abstract method yang nantinya harus diimplementasikan oleh class turunannya, yaitu PelangganUmum dan PelangganMember.
+## Interface
+Nilai tambah yang saya terapkan pada program ini adalah penggunaan interface. Interface digunakan untuk menentukan method yang berkaitan dengan proses CRUD, yaitu tambah, lihat, ubah, dan hapus data.
+Pada program saya, interface tersebut dibuat dalam class CRUD.java dan kemudian diterapkan pada StudioController menggunakan implements. Dengan adanya interface ini, method CRUD yang digunakan dalam pengelolaan data studio sudah ditentukan dan kemudian dijalankan oleh StudioController.\
+<img width="226" height="138" alt="image" src="https://github.com/user-attachments/assets/20d52e32-aaff-4506-b9c0-d4d3c2805811" />\
+disini terlihat saya menerapkan interface dengan membuat CRUD sebagai interface. Di dalamnya terdapat method tambah(), lihat(), ubah(), dan hapus() yang digunakan sebagai aturan untuk proses CRUD pada program. Interface ini kemudian diterapkan pada StudioController untuk menjalankan method tersebut.
 
 
 
