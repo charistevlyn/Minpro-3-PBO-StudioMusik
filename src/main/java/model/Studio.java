@@ -1,23 +1,21 @@
-
-package studiomusik;
+package model;
 
 public class Studio {
-    
-    // Atribut
+
     private String idStudio;
     private String namaStudio;
     private String jenisStudio;
     private double hargaPerJam;
-    
-    // Constructor
-    public Studio(String idStudio, String namaStudio, String jenisStudio, double hargaPerJam) {
+
+    public Studio(String idStudio, String namaStudio,
+                  String jenisStudio, double hargaPerJam) {
+
         this.idStudio = idStudio;
         this.namaStudio = namaStudio;
         this.jenisStudio = jenisStudio;
         this.hargaPerJam = hargaPerJam;
     }
-    
-    // Getter dan Setter
+
     public String getIdStudio() {
         return idStudio;
     }
@@ -50,4 +48,3 @@ public class Studio {
         this.hargaPerJam = hargaPerJam;
     }
 }
-    
